@@ -3,13 +3,12 @@ import NewComponent from './NewComponent.vue'
 export default{
   data() {
     return {
-      name: 'john',
-      surn: 'smit',
+      text: 'page',
+      href: 'page.html',
     }
   }
 }
 </script>
 <template>
-  <div>{{ name }} </div>
-  <div> {{ surn }}</div>
+  <a><img :src="href" alt="">{{ text }}</a>
 </template>
