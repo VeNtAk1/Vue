@@ -1,8 +1,15 @@
 <script>
+import NewComponent from './NewComponent.vue'
 export default{
-  name: "App",
+  data() {
+    return {
+      name: 'john',
+      surn: 'smit',
+    }
+  }
 }
 </script>
 <template>
-  <p>Hello_world!</p>
+  <div>{{ name }} </div>
+  <div> {{ surn }}</div>
 </template>
