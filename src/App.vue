@@ -1,14 +1,19 @@
 <script>
 import NewComponent from './NewComponent.vue'
 export default{
-  methods:{
-    show: function(){
-      alert("18.02.2025")
+  data() {
+    return {
+      num1: 1,
+      num2: 2,
+    }
+  },
+  methods: {
+    show:function(a,b){
+      alert(a + b)
     }
   }
 }
 </script>
 <template>
-  <button v-on:click="show">text</button>
-  <button @mouseover="show">text_2</button>
+  {{ show(num1, num2) }}
 </template>
