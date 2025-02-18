@@ -9,5 +9,6 @@ export default{
 }
 </script>
 <template>
-  {{ show() }}
+  <button v-on:click="show">text</button>
+  <button @mouseover="show">text_2</button>
 </template>
