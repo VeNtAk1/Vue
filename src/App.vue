@@ -1,13 +1,13 @@
 <script>
 import NewComponent from './NewComponent.vue'
 export default{
-  data() {
-    return {
-      obj: {x: 1, y: 2, z: 3},
+  methods:{
+    show: function(){
+      alert("18.02.2025")
     }
   }
 }
 </script>
 <template>
-  {{ obj.x + obj.y + obj.z}}
+  {{ show() }}
 </template>
