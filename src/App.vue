@@ -3,17 +3,16 @@ import NewComponent from './NewComponent.vue'
 export default{
   data() {
     return {
-      num: 5,
-      num1: 1,
-      num2: 2,
-      num3: 3,
+      arr: ['x', 'y', 'z'],
+      result: [1, 2, 3]
     }
   }
-  
 }
 </script>
 <template>
-  {{ num*num }}
+  {{ arr[0] }}
+  {{ arr[1] }}
+  {{ arr[2] }}
   <br>
-  {{ num1 + num2 + num3 }}
+  {{ result[0] + result[1] + result[2] }}
 </template>
