@@ -2,8 +2,7 @@
 export default {
     data(){
         return {
-            visible_1: true,
-            visible_2: false,
+            hidden: "text",
         }  
     },
     methods:{  
@@ -14,6 +13,5 @@ export default {
 
 
 <template>
-    <p v-if="visible_1">text_1</p>
-    <p v-if="visible_2">text_2</p>
+    <p v-if="!hidden">text_1</p>
 </template>
