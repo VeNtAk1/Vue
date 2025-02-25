@@ -1,15 +1,19 @@
 <script>
 export default {
+    data(){
+        return {
+            visible_1: true,
+            visible_2: false,
+        }  
+    },
     methods:{  
-        first(){
-            alert("Gh")
-        }
+       
     }
 }
 </script>
 
 
 <template>
-    <a @click.stop>Нажми на меня</a>
-    <a @click.once="first">Нажми на меня_#2</a>
+    <p v-if="visible_1">text_1</p>
+    <p v-if="visible_2">text_2</p>
 </template>
