@@ -1,19 +1,22 @@
 <script>
 import NewComponent from './NewComponent.vue'
 export default{
-  data() {
-    return {
-      num1: 1,
-      num2: 2,
+    data() {
+	    return {
+		    num1: 1,
+		    num2: 2,
+	    };
+    },
+    methods: {
+    show: function(){
+        alert(this.num1 + this.num2)
+        }
+    },
+    mounted() {
+        this.show();
     }
-  },
-  methods: {
-    show:function(a,b){
-      alert(a + b)
-    }
-  }
-}
+};
 </script>
 <template>
-  {{ show(num1, num2) }}
+
 </template>
