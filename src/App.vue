@@ -2,31 +2,23 @@
 export default {
   data() {
     return {
-		text: 'xxx',
+		cost: 100,
+        amount: 2,
 	}
   },
   methods:{
-    change(){
-        this.text = "ууу"
+    update_cost(){
+        this.cost = 150
     },
-    update_1: function(){
-        this.text = "ppp"
-    },
-    update_2(){
-        this.text = "eee"
-    }
-  }
-};
+    price: function(){
+            return this.amount * this.cost
+        }
+    }   
+}
 </script>
 
 
 <template>
-  {{ text }}
-  <br>
-  <button @click="change">Поменять на ууу</button>
-  <br>
-  <button @click="update_1" style="margin-top: 10px;">Поменять на ррр</button>
-  <br>
-  <button @click="update_2" style="margin-top: 10px;">Поменять на еее</button>
-
+    <button @click="update_cost">Поменять</button>
+    <p> {{ price() }}</p>
 </template>
