@@ -2,33 +2,31 @@
 export default {
     data(){
         return{
-            visible: false,
-            visible_button_1: true,
-            visible_button_2: false,
+            visible_1: true,
+            visible_2: true,
+            visible_3: true,
         }
-         
     },
-    methods:{ 
-        hide(){
-            this.visible =  true
-            this.visible_button_1 = false
-            this.visible_button_2 = true
+    methods:{
+        toggle_1(){
+            this.visible_1 = !this.visible_1;
         },
-        hide_2(){
-            this.visible = false
-            this.visible_button_2 = false
-            this.visible_button_1 = true
-
-
+        toggle_2(){
+            this.visible_2 = !this.visible_2;
+        },
+        toggle_3(){
+            this.visible_3 = !this.visible_3;
         }
-
-    }
+    },
 }
 </script>
 
 
 <template>
-    <p v-if="visible">text_1</p>
-    <button @click="hide" v-if="visible_button_1">Появись</button>
-    <button @click="hide_2"  v-if="visible_button_2">Уберись</button>
+    <p v-if="visible_1">text1</p>
+    <p v-if="visible_2">text_2</p>
+    <p v-if="visible_3">text_3</p>
+    <button @click="toggle_1">button_1</button>
+    <button @click="toggle_2">button_2</button>
+    <button @click="toggle_3">button_3</button>
 </template>
