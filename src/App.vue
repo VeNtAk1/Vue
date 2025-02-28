@@ -2,7 +2,20 @@
 export default {
     data() {
         return {
-            items: [1, -2, 3, -4, 5],
+            products: [
+			{
+				id: 1,
+				name: 'product1',
+			},
+			{
+				id: 2,
+				name: 'product2',
+			},
+			{
+				id: 3,
+				name: 'product3',
+			},
+		]
         }
     },
     methods:{
@@ -13,8 +26,7 @@ export default {
 
 
 <template>
-    <div v-for="elem in items">
-        <p v-if="elem > 0">{{ elem }}</p>
-    </div>
-
+    <ul v-for="elem in products">
+        <li>{{ elem.name }}</li>
+    </ul>
 </template>
