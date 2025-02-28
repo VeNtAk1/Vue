@@ -2,7 +2,8 @@
 export default {
     data() {
         return {
-            cssClasses: 'active valid',
+            isActive: true,
+		    isDisabled: true,
         }
     },
     methods:{
@@ -13,7 +14,7 @@ export default {
 
 
 <template>
-    <p :class="cssClasses">text</p>
+    <p :class="{active: isActive, disable: isDisabled}">text</p>
 </template>
 <style>
     
