@@ -2,19 +2,20 @@
 export default {
     data() {
         return {
-            binar: false,
+            arr: [1, 2, 3, 4, 5]
         }
     },
     methods:{
-        toggle(){
-                this.binar = !this.binar
-        }
+       
     }
 }
 </script>
 
 
 <template>
-    <p v-show="binar">text</p>
-    <button @click="toggle">click</button>
+    <!-- <p v-for="elem in arr">{{ elem }} </p> -->
+    <!-- <p v-for="elem in arr">{{ elem**2 }} </p> -->
+    <ul>
+        <li v-for="elem in arr">{{ elem }}</li>
+    </ul>
 </template>
