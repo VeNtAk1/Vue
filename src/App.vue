@@ -18,8 +18,10 @@ export default {
 
 
 <template>
-    <!-- <button @click="show">Нажми на меня</button>
-    <p>{{ arr }}</p> -->
-    <button @click="firstdel">Удали</button>
-    {{ arr }}
+    <p>3rgr</p>
 </template>
+<style>
+    p {
+        color: green;
+    }
+</style>
