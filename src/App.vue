@@ -2,18 +2,23 @@
 export default {
     data() {
         return {
-            age: 25, 
+            binar: false,
         }
     },
     methods:{
-       
-    },
+        show(){
+            this.binar = !this.binar
+        }
+    }
 }
 </script>
 
 
 <template>
-   <p v-if=" age < 18">Подросток</p>
-   <p v-if=" 19 < age < 25">Молодой человек</p>
-   <p v-if=" age > 26">Мужчина</p>
+    <div v-if="binar">
+        <p>+</p>
+        <p>+</p>
+        <p>+</p>
+    </div>
+   <button @click="show">Нажми на меня</button>
 </template>
