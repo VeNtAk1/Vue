@@ -6,8 +6,8 @@ export default {
         }
     },
     methods:{
-        show(){
-            this.binar = !this.binar
+        toggle(){
+                this.binar = !this.binar
         }
     }
 }
@@ -15,10 +15,6 @@ export default {
 
 
 <template>
-    <div v-if="binar">
-        <p>+</p>
-        <p>+</p>
-        <p>+</p>
-    </div>
-   <button @click="show">Нажми на меня</button>
+    <p v-show="binar">text</p>
+    <button @click="toggle">click</button>
 </template>
