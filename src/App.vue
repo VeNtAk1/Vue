@@ -2,31 +2,19 @@
 export default {
     data() {
         return {
-            products: [
-			{
-				id: 1,
-				name: 'product1',
-			},
-			{
-				id: 2,
-				name: 'product2',
-			},
-			{
-				id: 3,
-				name: 'product3',
-			},
-		]
+            arr: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
         }
     },
     methods:{
-       
+       show(){
+        this.arr.push(11)
+       }
     }
 }
 </script>
 
 
 <template>
-    <ul v-for="elem in products">
-        <li>{{ elem.name }}</li>
-    </ul>
+    <button @click="show">Нажми на меня</button>
+    <p>{{ arr }}</p>
 </template>
