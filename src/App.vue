@@ -8,6 +8,9 @@ export default {
     methods:{
        show(){
         this.arr.push(11)
+       },
+       firstdel(){
+        this.arr.shift()
        }
     }
 }
@@ -15,6 +18,8 @@ export default {
 
 
 <template>
-    <button @click="show">Нажми на меня</button>
-    <p>{{ arr }}</p>
+    <!-- <button @click="show">Нажми на меня</button>
+    <p>{{ arr }}</p> -->
+    <button @click="firstdel">Удали</button>
+    {{ arr }}
 </template>
