@@ -2,22 +2,22 @@
 export default {
     data() {
         return {
-            selectedCity: '', // Переменная для хранения выбранного города
-            cities: ['Москва', 'Санкт-Петербург', 'Новосибирск', 'Екатеринбург', 'Казань'] // Список городов
+            selectedDay: '', // Переменная для хранения выбранного дня
+            days: ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье'] // Список дней недели
         }
     }
 }
 </script>
 
 <template>  
-    <p>Выберите ваш город:</p>
+    <p>Выберите день недели:</p>
 
-    <select v-model="selectedCity">
-        <option disabled value="">-- Выберите город --</option>
-        <option v-for="city in cities" :key="city" :value="city">{{ city }}</option>
+    <select v-model="selectedDay">
+        <option disabled value="">-- Выберите день --</option>
+        <option v-for="day in days" :key="day" :value="day">{{ day }}</option>
     </select>
 
-    <p v-if="selectedCity">Вы живете в: {{ selectedCity }}</p>
+    <p v-if="selectedDay">Вы выбрали: {{ selectedDay }}</p>
 </template>
 
 <style>
