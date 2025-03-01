@@ -2,20 +2,26 @@
 export default {
     data() {
         return {
-            isActive: true,
-		    isDisabled: true,
+            message: "hello",
         }
     },
     methods:{
-       
+       show(){
+
+       }
     }
 }
 </script>
 
 
 <template>
-    <p :class="{active: isActive, disable: isDisabled}">text</p>
+     {{ message}}
+    <input v-model="message"  type="text">
+    <br>    
+   
+
 </template>
+
 <style>
     
 </style>
