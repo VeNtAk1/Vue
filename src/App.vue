@@ -2,22 +2,24 @@
 export default {
     data() {
         return {
-            isDisabled: false // Флаг блокировки инпута
+            inputText: '', // Текст из инпута
+            savedText: ''  // Текст, который будет отображаться
         }
     },
     methods: {
-        toggleInput() {
-            this.isDisabled = !this.isDisabled; // Меняем состояние блокировки
+        saveText(event) {
+            if (event.key === 'Enter') { // Проверяем, нажата ли клавиша Enter
+                this.savedText = this.inputText; // Сохраняем введённый текст
+                this.inputText = ''; // Очищаем поле ввода
+            }
         }
     }
 }
 </script>
 
 <template>  
-    <input type="text" :disabled="isDisabled" placeholder="Введите текст...">
-    <button @click="toggleInput">
-        {{ isDisabled ? 'Разблокировать' : 'Заблокировать' }}
-    </button>
+    <input type="text" v-model="inputText" @keyup.enter="saveText" placeholder="Введите текст и нажмите Enter">
+    <p v-if="savedText">Вы ввели: {{ savedText }}</p>
 </template>
 
 <style>
