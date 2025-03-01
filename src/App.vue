@@ -17,4 +17,10 @@ export default {
     </label>
 
     <p v-if="selectedLanguages.length">Вы знаете: {{ selectedLanguages.join(', ') }}</p>
-</template
+</template>
+
+<style>
+    label {
+        display: block;
+    }
+</style>
