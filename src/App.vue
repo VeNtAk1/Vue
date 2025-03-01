@@ -2,29 +2,25 @@
 export default {
     data() {
         return {
-            message_1: null,
-            message_2: null,
+            text: '',
+            binar: false,
         }
     },
     methods:{
-       show(){
-        if (this.message_1 != this.message_2){
-            this.message_2 = this.message_1;
-        }
-        else{
-            this.message_1 = this.message_2;
-        }
-       }
+        show(){
+            this.binar = !this.binar;
+        }   
     }
 }
 </script>
 
 
 <template>  
-    <input v-model="message_1" type="text">
-    <br>
-    <input v-model="message_2" type="text">
+    <textarea v-model="text"></textarea>
     <button @click="show">Нажми</button>
+    <ul v-if="binar">
+        <li v-for="elem in text">{{ elem }}</li>
+    </ul>
 </template>
 
 <style>
