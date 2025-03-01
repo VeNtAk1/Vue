@@ -2,36 +2,73 @@
 export default {
     data() {
         return {
-            items: ['Первый элемент', 'Второй элемент', 'Третий элемент'] // Исходный массив
+            users: [
+                {
+                    id: 1,
+                    name: 'name1',
+                    salary: 100,
+                    age: 30,
+                },
+                {
+                    id: 2,
+                    name: 'name2',
+                    salary: 200,
+                    age: 40,
+                },
+                {
+                    id: 3,
+                    name: 'name3',
+                    salary: 300,
+                    age: 50,
+                },
+            ],
         }
     },
     methods: {
-        removeItem(index) {
-            this.items.splice(index, 1); // Удаляем элемент по индексу
+        removeUser(id) {
+            this.users = this.users.filter(user => user.id !== id); // Удаляем работника по id
         }
     }
 }
 </script>
 
-<template>  
-    <ul>
-        <li v-for="(item, index) in items" :key="index" @click="removeItem(index)">
-            {{ item }}
-        </li>
-    </ul>
+<template>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Имя</th>
+                <th>Зарплата</th>
+                <th>Возраст</th>
+                <th>Удалить</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr v-for="user in users" :key="user.id">
+                <td>{{ user.name }}</td>
+                <td>{{ user.salary }}</td>
+                <td>{{ user.age }}</td>
+                <td>
+                    <a href="#" @click.prevent="removeUser(user.id)">Удалить</a> <!-- При клике удаляется работник -->
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </template>
 
 <style>
-    ul {
-        list-style-type: none;
-        padding: 0;
+    table {
+        width: 100%;
+        border-collapse: collapse;
     }
-    li {
-        margin: 5px 0;
+    th, td {
+        padding: 10px;
+        text-align: left;
+    }
+    a {
+        color: red;
         cursor: pointer;
-        color: blue;
     }
-    li:hover {
+    a:hover {
         text-decoration: underline;
     }
 </style>
