@@ -2,25 +2,27 @@
 export default {
     data() {
         return {
-            selectedLanguage: '', // Переменная для хранения выбранного языка
-            languages: ['Русский', 'Английский', 'Французский', 'Немецкий', 'Испанский'] // Список языков
+            selectedCity: '', // Переменная для хранения выбранного города
+            cities: ['Москва', 'Санкт-Петербург', 'Новосибирск', 'Екатеринбург', 'Казань'] // Список городов
         }
     }
 }
 </script>
 
 <template>  
-    <p>Какой язык для вас родной?</p>
+    <p>Выберите ваш город:</p>
 
-    <label v-for="lang in languages" :key="lang">
-        <input type="radio" v-model="selectedLanguage" :value="lang"> {{ lang }}
-    </label>
+    <select v-model="selectedCity">
+        <option disabled value="">-- Выберите город --</option>
+        <option v-for="city in cities" :key="city" :value="city">{{ city }}</option>
+    </select>
 
-    <p v-if="selectedLanguage">Ваш родной язык: {{ selectedLanguage }}</p>
+    <p v-if="selectedCity">Вы живете в: {{ selectedCity }}</p>
 </template>
 
 <style>
-    label {
+    select {
         display: block;
+        margin-top: 10px;
     }
 </style>
