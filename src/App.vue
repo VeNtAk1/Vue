@@ -2,12 +2,18 @@
 export default {
     data() {
         return {
-            message: null,
+            message_1: null,
+            message_2: null,
         }
     },
     methods:{
        show(){
-        this.message = this.message**2;
+        if (this.message_1 != this.message_2){
+            this.message_2 = this.message_1;
+        }
+        else{
+            this.message_1 = this.message_2;
+        }
        }
     }
 }
@@ -15,9 +21,10 @@ export default {
 
 
 <template>  
-    <input v-model="message" type="number">
+    <input v-model="message_1" type="text">
+    <br>
+    <input v-model="message_2" type="text">
     <button @click="show">Нажми</button>
-    <p>{{ messages }}</p>
 </template>
 
 <style>
