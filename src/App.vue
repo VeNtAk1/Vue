@@ -1,22 +1,42 @@
 <template>
     <div>
-      <ChildComponent @show="handleShowEvent" />
+      <p>Имя: {{ user.name }}</p>
+      <p>Зарплата: {{ user.salary }}</p>
+      <p>Возраст: {{ user.age }}</p>
+      <!-- Кнопка для удаления работника -->
+      <button @click="deleteEmployee">Удалить работника</button>
     </div>
   </template>
   
   <script>
-  import ChildComponent from './ChildComponent.vue';
-  
   export default {
-    components: {
-      ChildComponent
+    props: {
+      // Пропс для получения данных работника
+      user: {
+        type: Object,
+        required: true
+      },
+      // Пропс для метода удаления работника
+      removeUser: {
+        type: Function,
+        required: true
+      }
     },
     methods: {
-      handleShowEvent(param1, param2) {
-        // Здесь вы можете обработать переданные параметры
-        console.log(param1, param2);  // Выведет 'xxx' и 'yyy'
+      // Метод для вызова удаления работника
+      deleteEmployee() {
+        // Передаем id работника для удаления
+        this.removeUser(this.user.id);
       }
     }
-  }
+  };
   </script>
+  
+  <style scoped>
+  button {
+    margin-top: 10px;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  </style>
   
