@@ -1,8 +1,14 @@
 <template>
     <div>
-      <h2>Информация о работнике</h2>
-      <!-- Передаем данные в дочерний компонент -->
-      <employee :name="workerName" :salary="workerSalary" :age="workerAge"></employee>
+      <h2>Список работников</h2>
+      <!-- Цикл v-for для создания компонента Employee для каждого работника -->
+      <employee
+        v-for="user in users"
+        :key="user.id"
+        :name="user.name"
+        :salary="user.salary"
+        :age="user.age"
+      ></employee>
     </div>
   </template>
   
@@ -15,13 +21,30 @@
     },
     data() {
       return {
-        // Данные работника, которые передаем в дочерний компонент
-        workerName: 'Иван Иванов',
-        workerSalary: 50000,
-        workerAge: 30
-      };
+        // Массив работников
+        users: [
+          {
+            id: 1,
+            name: 'name1',
+            salary: 100,
+            age: 30,
+          },
+          {
+            id: 2,
+            name: 'name2',
+            salary: 200,
+            age: 40,
+          },
+          {
+            id: 3,
+            name: 'name3',
+            salary: 300,
+            age: 50,
+          }
+        ]
+      }
     }
-  };
+  }
   </script>
   
   <style scoped>
