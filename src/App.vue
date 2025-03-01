@@ -1,37 +1,43 @@
 <template>
     <div>
-      <h2>Вызов функций из родительского компонента</h2>
-      <!-- Передаем две функции в дочерний компонент -->
-      <employee 
-        :firstFunction="firstFunction" 
-        :secondFunction="secondFunction"
-      ></employee>
+      <h3>Информация о работнике</h3>
+      <p>Имя: {{ workerName }}</p>
+      <!-- Кнопка для передачи имени работника в родительский компонент -->
+      <button @click="sendWorkerName">Отправить имя в родительский компонент</button>
     </div>
   </template>
   
   <script>
-  import Employee from './Employee.vue'; // Импортируем дочерний компонент
-  
   export default {
-    components: {
-      Employee // Регистрируем дочерний компонент
+    props: {
+      // Принимаем метод из родительского компонента через пропс
+      sendName: {
+        type: Function,
+        required: true
+      }
+    },
+    data() {
+      return {
+        // Имя работника
+        workerName: 'John Doe'
+      };
     },
     methods: {
-      // Первая функция
-      firstFunction() {
-        alert('Первая функция вызвана!');
-      },
-      // Вторая функция
-      secondFunction() {
-        alert('Вторая функция вызвана!');
+      // Метод, который вызывает метод родителя и передает имя работника
+      sendWorkerName() {
+        this.sendName(this.workerName); // Вызываем переданный метод и передаем имя работника
       }
     }
   }
   </script>
   
   <style scoped>
-  h2 {
+  h3 {
     color: #333;
+  }
+  button {
+    padding: 10px;
+    cursor: pointer;
   }
   </style>
   
