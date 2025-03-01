@@ -2,27 +2,18 @@
 export default {
     data() {
         return {
-            text: '',
-            binar: false,
+            isVisible: false, // По умолчанию абзац скрыт
         }
-    },
-    methods:{
-        show(){
-            this.binar = !this.binar;
-        }   
     }
 }
 </script>
 
-
 <template>  
-    <textarea v-model="text"></textarea>
-    <button @click="show">Нажми</button>
-    <ul v-if="binar">
-        <li v-for="elem in text">{{ elem }}</li>
-    </ul>
+    <label>
+        <input type="checkbox" v-model="isVisible"> Показать абзац
+    </label>
+    <p v-if="isVisible">Этот абзац показывается, если чекбокс отмечен.</p>
 </template>
 
 <style>
-    
 </style>
