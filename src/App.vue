@@ -2,16 +2,12 @@
 export default {
     data() {
         return {
-            items: ['Первый элемент', 'Второй элемент', 'Третий элемент'], // Исходный массив
-            inputText: '' // Текст, введённый в инпут
+            items: ['Первый элемент', 'Второй элемент', 'Третий элемент'] // Исходный массив
         }
     },
     methods: {
-        addItem() {
-            if (this.inputText.trim() !== '') { // Проверяем, не пустой ли введённый текст
-                this.items.push(this.inputText); // Добавляем новый элемент в массив
-                this.inputText = ''; // Очищаем инпут после добавления
-            }
+        removeItem(index) {
+            this.items.splice(index, 1); // Удаляем элемент по индексу
         }
     }
 }
@@ -19,11 +15,10 @@ export default {
 
 <template>  
     <ul>
-        <li v-for="(item, index) in items" :key="index">{{ item }}</li>
+        <li v-for="(item, index) in items" :key="index" @click="removeItem(index)">
+            {{ item }}
+        </li>
     </ul>
-
-    <input type="text" v-model="inputText" placeholder="Введите текст">
-    <button @click="addItem">Добавить в список</button>
 </template>
 
 <style>
@@ -33,8 +28,10 @@ export default {
     }
     li {
         margin: 5px 0;
+        cursor: pointer;
+        color: blue;
     }
-    input {
-        margin-right: 10px;
+    li:hover {
+        text-decoration: underline;
     }
 </style>
