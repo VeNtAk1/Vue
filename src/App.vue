@@ -2,15 +2,14 @@
 export default {
     data() {
         return {
-            inputText: '', // Текст из инпута
-            savedText: ''  // Текст, который будет отображаться
+            message: '' // Текст, который будет отображаться
         }
     },
     methods: {
-        saveText(event) {
-            if (event.key === 'Enter') { // Проверяем, нажата ли клавиша Enter
-                this.savedText = this.inputText; // Сохраняем введённый текст
-                this.inputText = ''; // Очищаем поле ввода
+        handleClick(event) {
+            if (event.ctrlKey) { // Проверяем, зажат ли Ctrl
+                event.preventDefault(); // Предотвращаем переход по ссылке
+                this.message = 'Вы нажали на ссылку с зажатым Ctrl!';
             }
         }
     }
@@ -18,14 +17,16 @@ export default {
 </script>
 
 <template>  
-    <input type="text" v-model="inputText" @keyup.enter="saveText" placeholder="Введите текст и нажмите Enter">
-    <p v-if="savedText">Вы ввели: {{ savedText }}</p>
+    <a href="https://example.com" @click="handleClick">Нажмите на меня с Ctrl</a>
+    <p v-if="message">{{ message }}</p>
 </template>
 
 <style>
-    input {
+    a {
         display: block;
         margin-bottom: 10px;
-        padding: 5px;
+        color: blue;
+        cursor: pointer;
+        text-decoration: underline;
     }
 </style>
