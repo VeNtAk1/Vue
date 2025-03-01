@@ -1,22 +1,24 @@
 <template>
     <div>
-      <h2>Список элементов</h2>
-      <!-- Передаем массив в дочерний компонент -->
-      <child-component :items="elementsList"></child-component>
+      <h2>Информация о работнике</h2>
+      <!-- Передаем данные в дочерний компонент -->
+      <employee :name="workerName" :salary="workerSalary" :age="workerAge"></employee>
     </div>
   </template>
   
   <script>
-  import ChildComponent from './ChildComponent.vue'; // Импортируем дочерний компонент
+  import Employee from './Employee.vue'; // Импортируем дочерний компонент
   
   export default {
     components: {
-      ChildComponent // Регистрируем дочерний компонент
+      Employee // Регистрируем дочерний компонент
     },
     data() {
       return {
-        // Массив, который будем передавать в дочерний компонент
-        elementsList: ['Элемент 1', 'Элемент 2', 'Элемент 3', 'Элемент 4']
+        // Данные работника, которые передаем в дочерний компонент
+        workerName: 'Иван Иванов',
+        workerSalary: 50000,
+        workerAge: 30
       };
     }
   };
