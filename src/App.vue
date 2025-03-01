@@ -1,43 +1,22 @@
 <template>
     <div>
-      <h3>Информация о работнике</h3>
-      <p>Имя: {{ workerName }}</p>
-      <!-- Кнопка для передачи имени работника в родительский компонент -->
-      <button @click="sendWorkerName">Отправить имя в родительский компонент</button>
+      <ChildComponent @show="handleShowEvent" />
     </div>
   </template>
   
   <script>
+  import ChildComponent from './ChildComponent.vue';
+  
   export default {
-    props: {
-      // Принимаем метод из родительского компонента через пропс
-      sendName: {
-        type: Function,
-        required: true
-      }
-    },
-    data() {
-      return {
-        // Имя работника
-        workerName: 'John Doe'
-      };
+    components: {
+      ChildComponent
     },
     methods: {
-      // Метод, который вызывает метод родителя и передает имя работника
-      sendWorkerName() {
-        this.sendName(this.workerName); // Вызываем переданный метод и передаем имя работника
+      handleShowEvent(param1, param2) {
+        // Здесь вы можете обработать переданные параметры
+        console.log(param1, param2);  // Выведет 'xxx' и 'yyy'
       }
     }
   }
   </script>
-  
-  <style scoped>
-  h3 {
-    color: #333;
-  }
-  button {
-    padding: 10px;
-    cursor: pointer;
-  }
-  </style>
   
