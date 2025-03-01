@@ -2,18 +2,19 @@
 export default {
     data() {
         return {
-            isVisible: false, // По умолчанию абзац скрыт
+            selectedLanguages: [], // Массив для хранения выбранных языков
+            languages: ['JavaScript', 'Python', 'C++', 'Java', 'PHP'] // Список языков
         }
     }
 }
 </script>
 
 <template>  
-    <label>
-        <input type="checkbox" v-model="isVisible"> Показать абзац
+    <p>Какие языки программирования вы знаете?</p>
+    
+    <label v-for="lang in languages" :key="lang">
+        <input type="checkbox" v-model="selectedLanguages" :value="lang"> {{ lang }}
     </label>
-    <p v-if="isVisible">Этот абзац показывается, если чекбокс отмечен.</p>
-</template>
 
-<style>
-</style>
+    <p v-if="selectedLanguages.length">Вы знаете: {{ selectedLanguages.join(', ') }}</p>
+</template
